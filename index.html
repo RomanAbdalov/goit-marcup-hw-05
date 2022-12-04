@@ -32,7 +32,7 @@
                 <h1 class="hero-title">
                     ЕФЕКТИВНІ РІШЕННЯ ДЛЯ<br> ВАШОГО БІЗНЕСУ
                 </h1>
-                <button type="button" class="button list">
+                <button type="button" class="button list" data-open-modal>
                     Замовити послугу
                 </button>
             </section>
@@ -65,9 +65,18 @@
                 Чим ми займаємося
             </h2>
             <ul class="work-list list">
-                <li class="work-items item"><img width="370px" src="./img/desctop.jpg" alt="Десктопні додатки" height="260" width="270"></li>
-                <li class="work-items item"><img width="370px" src="./img/mobile.jpg" alt="Мобільні додатки" height="260" width="270"></li>
-                <li class="work-items item"><img width="370px" src="./img/disain.jpg" alt="Дизайнерські рішення" height="260" width="270"></li>
+                <li class="work-items item">
+                    <p class="work-text">
+                        ДЕСКТОПНІ ДОДАТКИ
+                    </p><img width="370px" src="./img/desctop.jpg" alt="Десктопні додатки" height="260" width="270"></li>
+                <li class="work-items item">
+                    <p class="work-text">
+                        МОБІЛЬНІ ДОДАТКИ
+                    </p><img width="370px" src="./img/mobile.jpg" alt="Мобільні додатки" height="260" width="270"></li>
+                <li class="work-items item">
+                    <p class="work-text">
+                        ДИЗАЙНЕРСЬКІ РІШЕННЯ
+                    </p><img width="370px" src="./img/disain.jpg" alt="Дизайнерські рішення" height="260" width="270"></li>
             </ul>
         </div>
         </section>
@@ -240,6 +249,35 @@
             </div>
         </div>
             </address>
-        </footer>   
+        </footer>  
+        <div class="backdrop is-hidden" data-backdrop>
+            <div class="modal">
+                <button data-close-modal>Зачинити</button>
+                <!-- <svg>
+                    <use hreff="">
+
+                    </use>
+                </svg> -->
+            </div>
+        </div> 
+        <script>
+            const refs = {
+                openModalBtn: document.querySelector("[data-open-modal]"),
+                closeModalBtn: document.querySelector("[data-close-modal]"),
+                backdrop: document.querySelector("[data-backdrop]"),
+            };
+            refs.openModalBtn.addEventListener("click", toggleModal);
+            refs.closeModalBtn.addEventListener("click", toggleModal);
+
+            refs.backdrop.addEventListener("click", logBackdropClick);
+
+            function toggleModal() {
+                refs.backdrop.classList.toggle("is-hidden"); 
+            }
+
+            function logBackdropClick() {
+                console.log("Це клік в бедроп");
+            }
+        </script>
 </body>
 </html>
